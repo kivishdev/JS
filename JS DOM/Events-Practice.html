@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <h1 id="counter-display"></h1>
+        <button id="Increase">Increment</button>
+        <button id="Decrease">Decrement</button>
+        <button id="Reset">Reset</button>
+    </div>
+
+
+      <!-- Practice: -->
+  <input type="text" placeholder="Write Here">
+  <h1>Characters Count: <span>0</span></h1>
+
+
+</body>
+<script>
+let count = 0;
+let increaseBtn = document.getElementById("Increase");
+let decreaseBtn = document.getElementById("Decrease");
+let resetBtn = document.getElementById("Reset");
+let Counter = document.getElementById("counter-display");
+increaseBtn.addEventListener("click", function () {
+    count++;
+    Counter.textContent = count;
+});
+decreaseBtn.addEventListener("click", function() {
+if(count !== 0){
+     count--;
+}    
+    Counter.textContent = count;
+});
+resetBtn.addEventListener("click", function(){
+    Count=0;
+    Counter.textContent = count;
+});
+
+
+// Reversing a String
+function reverseString(str) {
+    let splitval = str.split("");
+    let reversedVal = splitval.reverse();
+    return reversedVal.join("");
+}
+console.log(reverseString("Hello"));
+
+let inp = document.querySelector("input");
+let span = document.querySelector("span"); //Span me changes krnee haii isliye span.
+inp.addEventListener("input", function () {
+  span.textContent = inp.value.length;
+});
+
+</script>
+</html>

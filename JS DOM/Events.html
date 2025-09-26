@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>JavaScript Events Tutorial</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, Helvetica, sans-serif;
+      background-color: #d0c0c0;
+    }
+
+    body {
+      margin-top: 100px;
+      padding: 50px;
+    }
+
+    #abcd {
+      position: absolute;
+      width: 400px;
+      height: 400px;
+      background-color: red;
+    }
+
+    input {
+      display: block;
+      margin: 5px 0;
+      padding: 8px;
+      border-radius: 5px;
+      border: 1px solid #555;
+    }
+
+    select {
+      padding: 8px 12px;
+      font-size: 16px;
+      border-radius: 5px;
+      border: 1px solid #555;
+      cursor: pointer;
+      margin: 10px 0;
+    }
+
+    #btn {
+      padding: 12px 22px;
+      background-color: rgb(44, 168, 97);
+      color: white;
+      font-weight: 600;
+      border-radius: 5px;
+      cursor: pointer;
+      display: inline-block;
+      margin: 10px 0;
+    }
+
+    #btn:hover {
+      background-color: rgb(69, 93, 93);
+    }
+
+    .card {
+      color: white;
+      max-width: 300px;
+      margin-top: 5px;
+      padding: 20px;
+      border: 2px solid #e3e3e3;
+      display: inline-block;
+      background-color: #555;
+    }
+
+    .card h5 {
+      margin-top: 5px;
+    }
+
+    .card p {
+      font-size: 12px;
+      margin-top: 10px;
+    }
+
+    .profile {
+      width: 50px;
+      height: 50px;
+      background-color: red;
+      border-radius: 50%;
+      margin-bottom: 7px;
+      overflow: hidden;
+    }
+
+    .profile img {
+      width: 50px;
+      height: 50px;
+      object-fit: cover;
+    }
+    
+    .lt {
+      text-decoration: line-through;
+    }
+
+    .a {
+      width: 300px;
+      height: 200px;
+      background-color: red;
+      padding: 20px;
+      margin: 20px 0;
+    }
+
+    .b {
+      width: 200px;
+      height: 120px;
+      background-color: green;
+      padding: 15px;
+    }
+
+    .c {
+      width: 100px;
+      height: 60px;
+      background-color: blue;
+      padding: 10px;
+    }
+
+    ul {
+      margin: 20px 0;
+    }
+
+    li {
+      padding: 10px;
+      cursor: pointer;
+      margin: 5px 0;
+      border: 1px solid #ccc;
+    }
+
+    #nav {
+      background-color: #333;
+      padding: 15px;
+      margin: 20px 0;
+    }
+
+    #nav a {
+      color: white;
+      text-decoration: none;
+      margin-right: 20px;
+    }
+
+    button {
+      padding: 10px 15px;
+      cursor: pointer;
+    }
+
+    span {
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body> 
+
+  <!-- Practice: Character Counter -->
+  <input type="text" placeholder="Write Here">
+  <h3>Characters Count: <span>20</span></h3>
+
+  <!-- Event Bubbling Example: -->
+  <ul>
+    <li>Mango</li>
+    <li>Apple</li>
+    <li>Guava</li>
+    <li>Banana</li>
+    <li>Grapes</li>
+  </ul>
+
+  <!-- Event Capturing -->
+  <div class="a">A (Red Box)
+    <div class="b">B (Green Box)
+      <div class="c">C (Blue Box)
+        <button>Click Here</button>
+      </div>
+    </div>
+  </div>
+   
+  <!-- Normal P Tag: -->
+  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo, vitae voluptatem? Dolore iusto neque placeat.</p>
+
+  <!-- Form for creating cards -->
+  <div id="main">
+    <form>
+      <input type="text" placeholder="Profile Pic URL" />
+      <input type="text" placeholder="Name" />
+      <input type="text" placeholder="Occupation" />
+      <input type="text" placeholder="Info" />
+      <input type="submit" />
+    </form>
+  </div>
+
+  <!-- Device Selector -->
+  <h3 id="device">Select Your Device</h3>
+  <select>
+    <option selected disabled>Choose Your Device:</option>
+    <option value="vivo">Vivo</option>
+    <option value="samsung">Samsung</option>
+    <option value="apple">Apple</option>
+    <option value="oppo">Oppo</option>
+  </select>
+
+  <!-- Background Color Changer -->
+  <h2>Select a Color:</h2>
+  <select id="colorSelect">
+    <option value="">--Choose--</option>
+    <option value="red">Red</option>
+    <option value="green">Green</option>
+    <option value="blue">Blue</option>
+  </select>
+
+  <!-- Font Size Changer -->
+  <p id="para">This is a test</p>
+  <select id="fontSelect">
+    <option value="Small">Small</option>
+    <option value="Medium">Medium</option>
+    <option value="Large">Large</option>
+  </select>
+
+  <!-- File Upload Section -->
+  <input id="fileinp" type="file" style="display: none;" />
+  <div id="btn">Upload file</div>
+
+  <!-- Red Moving Box -->
+  <div id="abcd"></div>
+
+  <!-- Navigation with Event Bubbling -->
+  <div id="name">
+    <div id="nav">
+      <a href="https://www.google.com">Home</a>
+      <a href="https://www.facebook.com">Facebook</a>
+      <button>Submit and Continue</button>
+    </div>
+  </div>
+
+  <script src="Events-script.js"></script>
+</body>
+</html>
