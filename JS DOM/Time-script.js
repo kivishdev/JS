@@ -110,11 +110,12 @@ let jadoo = document.querySelector("#jadoo");
 let alertmsg = document.querySelector("h1");
 jadoo.addEventListener("click", function() {
     setTimeout(function () {
-        jadoo.textContent="Message For My Lovee...❤️❤️🌟"
-        alertmsg.textContent= "I Lovee You Jaanu😍😍😍...";
+        jadoo.textContent="Message..🌟"
+        alertmsg.textContent= "Hello...";
         console.log("Text Displayed");
         document.querySelector("h1").style.display = "initial";
         window.textContent= "💖💖💖";
     },3000);
 });
+
 
