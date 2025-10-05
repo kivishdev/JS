@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+      <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      padding: 40px 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 30px;
+    }
+
+    h1 {
+      color: white;
+      font-size: 48px;
+      font-weight: 700;
+      text-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+      margin-bottom: 10px;
+      letter-spacing: -0.025em;
+    }
+
+    h2 {
+      color: rgba(255, 255, 255, 0.9);
+      font-size: 24px;
+      font-weight: 400;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+      margin-bottom: 20px;
+    }
+
+    .card {
+      width: 320px;
+      padding: 32px;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 20px;
+      text-align: center;
+      box-shadow: 
+        0 20px 40px rgba(0, 0, 0, 0.1),
+        0 8px 16px rgba(0, 0, 0, 0.08);
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.8), transparent);
+    }
+
+    .card:hover {
+      transform: translateY(-8px) scale(1.02);
+      box-shadow: 
+        0 32px 64px rgba(0, 0, 0, 0.15),
+        0 16px 32px rgba(0, 0, 0, 0.1);
+    }
+
+    .card h3 {
+      color: #1a1a1a;
+      font-size: 24px;
+      font-weight: 700;
+      margin-bottom: 16px;
+      letter-spacing: -0.025em;
+    }
+
+    .card p {
+      color: #6b7280;
+      font-size: 16px;
+      line-height: 1.6;
+      margin-bottom: 24px;
+      font-weight: 500;
+    }
+
+    #likeCount {
+      color: #e11d48;
+      font-weight: 700;
+      font-size: 18px;
+    }
+
+    button {
+      position: relative;
+      padding: 12px 24px;
+      margin: 6px;
+      font-size: 14px;
+      font-weight: 600;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      text-transform: uppercase;
+      letter-spacing: 0.025em;
+      overflow: hidden;
+      font-family: inherit;
+    }
+
+    /* Top control buttons */
+    #increasebtn, #decreasebtn {
+      background: rgba(255, 255, 255, 0.2);
+      color: white;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    }
+
+    #increasebtn:hover, #decreasebtn:hover {
+      background: rgba(255, 255, 255, 0.3);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Action buttons in card */
+    .action-btn {
+      min-width: 80px;
+      margin: 4px;
+    }
+
+    #likeBtn {
+      background: linear-gradient(135deg, #e11d48 0%, #be185d 100%);
+      color: white;
+      box-shadow: 0 4px 16px rgba(225, 29, 72, 0.4);
+    }
+
+    #likeBtn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(225, 29, 72, 0.6);
+    }
+
+    #shareBtn {
+      background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+      color: white;
+      box-shadow: 0 4px 16px rgba(59, 130, 246, 0.4);
+    }
+
+    #shareBtn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(59, 130, 246, 0.6);
+    }
+
+    #subscribeBtn {
+      background: linear-gradient(135deg, #10b981 0%, #047857 100%);
+      color: white;
+      box-shadow: 0 4px 16px rgba(16, 185, 129, 0.4);
+    }
+
+    #subscribeBtn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(16, 185, 129, 0.6);
+    }
+
+    button:active {
+      transform: translateY(0);
+    }
+
+    /* Shine effect on hover */
+    button::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+      transition: left 0.5s;
+    }
+
+    button:hover::before {
+      left: 100%;
+    }
+
+    /* Responsive design */
+    @media (max-width: 480px) {
+      body {
+        padding: 20px 15px;
+        gap: 20px;
+      }
+
+      h1 {
+        font-size: 36px;
+      }
+
+      .card {
+        width: 100%;
+        max-width: 300px;
+        padding: 24px;
+      }
+
+      .action-btn {
+        width: calc(50% - 8px);
+        margin: 4px;
+      }
+
+      #subscribeBtn {
+        width: calc(100% - 8px);
+        margin-top: 8px;
+      }
+    }
+
+    /* Add some floating animation */
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+    }
+
+    .card {
+      animation: float 6s ease-in-out infinite;
+    }
+  </style>
+</head>
+<body>
+    <h1>Hey</h1>
+    <h2></h2>
+    <button id="increasebtn">Increase</button>
+    <button id="decreasebtn">Decrease</button>
+
+    <div class="card">
+      <h3>My First Card</h3>
+      <p>Likes: <span id="likeCount">0</span></p>
+      <button class="action-btn" id="likeBtn">Like</button>
+      <button class="action-btn" id="shareBtn">Share</button>
+      <button class="action-btn" id="subscribeBtn">Subscribe</button>
+    </div>
+
+    <script src="this-keyword.js"></script>
+</body>
+</html>
